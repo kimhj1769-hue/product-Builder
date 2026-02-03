@@ -1,9 +1,15 @@
 const generateBtn = document.getElementById('generate-btn');
 const numberElements = document.querySelectorAll('.number');
 
+const themeToggle = document.getElementById('theme-toggle');
+
 generateBtn.addEventListener('click', () => {
     const lottoNumbers = generateLottoNumbers();
     displayLottoNumbers(lottoNumbers);
+});
+
+themeToggle.addEventListener('change', () => {
+    document.body.classList.toggle('dark-mode');
 });
 
 function generateLottoNumbers() {
