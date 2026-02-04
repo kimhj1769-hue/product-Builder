@@ -78,42 +78,77 @@ body.dark-mode {
 }
 
 
-h1 {
-    color: var(--primary-color);
-    margin-bottom: 30px;
+.calculator {
+    width: 100%;
+    max-width: 320px;
 }
 
-.lotto-numbers {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.number {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+.display {
     background-color: var(--secondary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
+    padding: 25px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 36px;
     font-weight: bold;
-    color: var(--primary-color);
+    text-align: right;
+    color: var(--text-color);
+    min-height: 60px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-#generate-btn {
-    background-color: var(--primary-color);
-    color: #fff;
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     border: none;
-    padding: 15px 30px;
-    font-size: 18px;
+    padding: 20px;
+    font-size: 20px;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.2s ease;
+    font-weight: 600;
 }
 
-#generate-btn:hover {
+.btn:hover {
     filter: brightness(0.9);
+    transform: scale(0.98);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-number {
+    background-color: var(--secondary-color);
+}
+
+.btn-operator {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-clear {
+    background-color: #ff6b6b;
+    color: #fff;
+}
+
+.btn-delete {
+    background-color: #ffa500;
+    color: #fff;
+}
+
+.btn-equals {
+    background-color: #28a745;
+    color: #fff;
+    grid-column: span 2;
+}
+
+.btn-zero {
+    grid-column: span 2;
 }
