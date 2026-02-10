@@ -1,46 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>OCR Scanner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
+        <div class="language-switcher">
+            <a href="index.en.html">English</a>
+        </div>
         <div class="theme-switcher">
             <input type="checkbox" id="theme-toggle">
             <label for="theme-toggle"></label>
         </div>
-        <div class="calculator">
-            <div class="display" id="display">0</div>
-            <div class="buttons">
-                <button class="btn btn-clear" data-action="clear">C</button>
-                <button class="btn btn-delete" data-action="delete">⌫</button>
-                <button class="btn btn-operator" data-operator="%">%</button>
-                <button class="btn btn-operator" data-operator="/">÷</button>
+        <div class="ocr-scanner">
+            <h1>OCR 이미지 스캐너</h1>
 
-                <button class="btn btn-number" data-number="7">7</button>
-                <button class="btn btn-number" data-number="8">8</button>
-                <button class="btn btn-number" data-number="9">9</button>
-                <button class="btn btn-operator" data-operator="*">×</button>
+            <div class="upload-area" id="upload-area">
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <label for="file-input" class="upload-label">
+                    <span class="upload-icon">📷</span>
+                    <span class="upload-text">이미지 업로드</span>
+                    <span class="upload-hint">클릭하거나 파일을 드래그하세요</span>
+                </label>
+            </div>
 
-                <button class="btn btn-number" data-number="4">4</button>
-                <button class="btn btn-number" data-number="5">5</button>
-                <button class="btn btn-number" data-number="6">6</button>
-                <button class="btn btn-operator" data-operator="-">−</button>
+            <div class="preview-container" id="preview-container" style="display: none;">
+                <img id="preview-image" alt="미리보기">
+            </div>
 
-                <button class="btn btn-number" data-number="1">1</button>
-                <button class="btn btn-number" data-number="2">2</button>
-                <button class="btn btn-number" data-number="3">3</button>
-                <button class="btn btn-operator" data-operator="+">+</button>
+            <div class="loading-indicator" id="loading-indicator" style="display: none;">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">텍스트 추출 중...</div>
+                <div class="loading-progress" id="loading-progress">0%</div>
+            </div>
 
-                <button class="btn btn-number btn-zero" data-number="0">0</button>
-                <button class="btn btn-number" data-number=".">.</button>
-                <button class="btn btn-equals" data-action="equals">=</button>
+            <div class="result-container" id="result-container" style="display: none;">
+                <label for="result-text">추출된 텍스트:</label>
+                <textarea id="result-text" class="result-area" readonly></textarea>
+            </div>
+
+            <div class="action-buttons" id="action-buttons" style="display: none;">
+                <button class="btn btn-print" id="print-btn">🖨️ 프린트</button>
+                <button class="btn btn-reset" id="reset-btn">🗑️ 초기화</button>
             </div>
         </div>
     </div>
+    <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
     <script src="main.js"></script>
 </body>
 </html>
