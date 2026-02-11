@@ -8,11 +8,15 @@
     "start": "node index.js",
     "dev": "node --watch index.js"
   },
-  "keywords": ["claude", "api"],
+  "keywords": [
+    "claude",
+    "api"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.21.0",
-    "dotenv": "^16.0.0"
+    "@anthropic-ai/sdk": "^0.21.1",
+    "dotenv": "^16.0.0",
+    "n8n-mcp": "^2.35.2"
   }
 }
